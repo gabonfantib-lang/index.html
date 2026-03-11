@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <title>Consulta de Crédito</title>
 
@@ -69,27 +70,19 @@ border-radius:5px;
 
 <script>
 
-<script>
+let telefono="5492611234567";
 
 let baseDatos = {
+
 "30123456":1200000,
 "41191332":1500000,
 "39089575":2000000
+
 };
 
 function calcularCuota(monto){
 
 let tasa = 0.10;
-let meses = 36;
-
-let cuota=(monto*tasa)/(1-Math.pow(1+tasa,-meses));
-
-return Math.round(cuota);
-
-}
-function calcularCuota(monto){
-
-let tasa = 0.10; 
 let meses = 36;
 
 let cuota=(monto*tasa)/(1-Math.pow(1+tasa,-meses));
@@ -107,7 +100,6 @@ let cupo=baseDatos[dni];
 if(!cupo){
 
 document.getElementById("resultado").innerHTML="<p>DNI no encontrado</p>";
-
 return;
 
 }
@@ -120,11 +112,9 @@ let cuota1=calcularCuota(opcion1);
 let cuota2=calcularCuota(opcion2);
 let cuota3=calcularCuota(opcion3);
 
-let telefono="5492611234567";
-
-let link1="https://wa.me/"+5492615342222+"?text=Hola%20consulté%20mi%20crédito%20con%20DNI%20"+dni+"%20y%20quiero%20solicitar%20$"+opcion1;
-let link2="https://wa.me/"+5492615342222+"?text=Hola%20consulté%20mi%20crédito%20con%20DNI%20"+dni+"%20y%20quiero%20solicitar%20$"+opcion2;
-let link3="https://wa.me/"+5492615342222+"?text=Hola%20consulté%20mi%20crédito%20con%20DNI%20"+dni+"%20y%20quiero%20solicitar%20$"+opcion3;
+let link1="https://wa.me/"+telefono+"?text=Hola%20consulté%20mi%20crédito%20con%20DNI%20"+dni+"%20y%20quiero%20$"+opcion1;
+let link2="https://wa.me/"+telefono+"?text=Hola%20consulté%20mi%20crédito%20con%20DNI%20"+dni+"%20y%20quiero%20$"+opcion2;
+let link3="https://wa.me/"+telefono+"?text=Hola%20consulté%20mi%20crédito%20con%20DNI%20"+dni+"%20y%20quiero%20$"+opcion3;
 
 document.getElementById("resultado").innerHTML=
 
@@ -148,28 +138,9 @@ document.getElementById("resultado").innerHTML=
 "<a href='"+link3+"' target='_blank'><button>Solicitar por WhatsApp</button></a>"+
 "</div>";
 
-"<h3>Opciones disponibles</h3>"+
-
-"<div class='opcion'>"+
-"<b>$"+opcion1.toLocaleString()+"</b><br>"+
-"36 cuotas aprox $"+cuota1.toLocaleString()+
-"</div>"+
-
-"<div class='opcion'>"+
-"<b>$"+opcion2.toLocaleString()+"</b><br>"+
-"36 cuotas aprox $"+cuota2.toLocaleString()+
-"</div>"+
-
-"<div class='opcion'>"+
-"<b>$"+opcion3.toLocaleString()+"</b><br>"+
-"36 cuotas aprox $"+cuota3.toLocaleString()+
-"</div>";
-
 }
 
 </script>
 
 </body>
 </html>
- 
-

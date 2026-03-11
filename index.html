@@ -69,18 +69,24 @@ border-radius:5px;
 
 <script>
 
-let baseDatos = {
+<script>
 
 let baseDatos = {
-
 "30123456":1200000,
 "41191332":1500000,
 "39089575":2000000
-
 };
 
-};
+function calcularCuota(monto){
 
+let tasa = 0.10;
+let meses = 36;
+
+let cuota=(monto*tasa)/(1-Math.pow(1+tasa,-meses));
+
+return Math.round(cuota);
+
+}
 function calcularCuota(monto){
 
 let tasa = 0.10; 
@@ -166,3 +172,4 @@ document.getElementById("resultado").innerHTML=
 </body>
 </html>
  
+
